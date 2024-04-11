@@ -1,10 +1,10 @@
 ### CIS470-Activity-8 (CI/CD pipeline - Part 1)
 
-### Basics of CI/CD pipeline, Deoplying Lambda function
+### Basics of CI/CD pipeline, Deploying Lambda function
 
 ### Activity Objectives
 
-Experiment the use of AWS Lambda functions, and deploy them to AWS Lambda.
+Experiment with the use of AWS Lambda functions, and deploy them to AWS Lambda.
 Run a CI/CD pipeline to deploy your Lambda function to AWS Lambda.
 
 
@@ -12,7 +12,7 @@ Run a CI/CD pipeline to deploy your Lambda function to AWS Lambda.
 ### Activity Details
 
 ##### Create a GitHub repository
-You can fork the repository [here](https://github.com/umassd-dataviz/CIS470-Activity-8) and create a new repository. or You can start your own repository.
+You can fork the repository [here](https://github.com/umassd-dataviz/CIS470-Activity-8) and create a new repository. or You can start your repository.
 
 #### Open an AWS account
 You will need to go to the AWS console and create an account: https://aws.amazon.com/free
@@ -34,12 +34,19 @@ Create a new Lambda function in your AWS account. The Lambda function name shoul
 Now you should see a new Lambda function. The missing part is the code and the trigger.
 Add a new trigger.
 <img src="./imgs/Lambda4.png">
-5. In the trigger section, select **AWS API Gateway** and click **Next** (refer to the attached screen shot).
+5. In the trigger section, select **AWS API Gateway** and click **Next** (refer to the attached screenshot).
 <img src="./imgs/Lambda5.png">
 
 ##### Having set the API and made the Lambda function, you can now deploy it to Lambda.
-In order to deploy to lambda, you need to  have the access key and the secret key.
-Check the video below to see how you can make the access key and secret key. Also follow the video steps to add the keys to your GitHub repository secret keys.
+In order to deploy to Lambda, you need to  have the access key and the secret key.
+Check the video below to see how you can make the access key and secret key. Also, follow the video steps to add the keys to your GitHub repository secret keys.
+
+
+
+
+
+https://github.com/umassd-dataviz/CIS470-Activity-8/assets/119906645/8ca7d3a7-d2e6-4764-b124-2b2c1eb7a775
+
 
 
 
