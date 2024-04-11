@@ -24,8 +24,8 @@ jobs:
       - name: Deploy to Lambda
         run: zip -r application.zip lambda.js index.js public/*
         
-### Now install AWS CLI ###
-- name: Install AWS CLI
+
+      - name: Install AWS CLI
         uses: aws-actions/aws-cli@v2
         with:
           aws-version: '2.0.67'  # You can adjust the AWS CLI version if needed
@@ -37,9 +37,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Same access KEY_ID as before
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Same SECRET_ACCESS_KEY as before
           region: 'us-east-1'                              # Same region as before
-
-      - name: Build (Optional)
-        # Add any build steps here if your project requires them
 
 ### Now deploy your project to Lambda!
       - name: Deploy to Lambda
