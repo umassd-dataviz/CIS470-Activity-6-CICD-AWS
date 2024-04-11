@@ -2,42 +2,34 @@ name: Deploy Lambda
 
 on:
   push:
-    branches: [ main ]  # You can change this to the branch you want to trigger deployment on
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest  # You can choose a different runner OS if needed, but latest is recommended
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js # Name of the action
-        uses: actions/setup-node@v3 # You can change this to your preferred setup method
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with: 
-          node-version: '18' # This is the version of Node.js you want to use (please use 18 and above)
-      
-      - name: Install dependencies # Name of the action (npm install)
-        run: npm install # this will install all dependencies in package.json (ci = continuous integration)
+          node-version: '18'
 
-      # Optional build step (if needed)
-      # - name: Build application
-      #   run: npm run build  # Replace with your build command
+      - name: Install dependencies
+        run: npm install
 
- ### Now deploy your project to Lambda! ###
       - name: Zip and deploy to Lambda
         run: |
           zip -r application.zip lambda.js index.js public/*
           aws lambda update-function-code --function-name my-lambda-function --zip-file fileb://application.zip
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'
 
       - name: Install AWS CLI
-        uses: aws-actions/aws-cli@v2
-        with:
-          aws-version: '2.0.67'  # You can adjust the AWS CLI version if needed
-          region: 'us-east-1'      # You can change this to your desired AWS region
-
-      - name: Configure AWS Permissions
-        uses: aws/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Same access KEY_ID as before
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Same SECRET_ACCESS_KEY as before
-          region: 'us-east-1'                              # Same region as before
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
