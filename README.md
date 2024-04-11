@@ -27,7 +27,7 @@ Create a new Lambda function in your AWS account. The Lambda function name shoul
 2. Click **Create Function**.
 <img src="./imgs/Lambda2.png">
 3. Enter the name of the function as `CIS470-Activity-8`, and follow the steps.
-<img src="./imgs/Lambda3.pn"g>
+<img src="./imgs/Lambda3.png">
 
 4. Click **Next**.
 
