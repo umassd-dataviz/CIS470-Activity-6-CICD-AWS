@@ -1,0 +1,46 @@
+name: Deploy Lambda
+
+on:
+  push:
+    branches: [ main ]  # You can change this to the branch you want to trigger deployment on
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # You can choose a different runner OS if needed, but latest is recommended
+    steps:
+      - name: Checkout code # Name of the action
+      - uses: actions/checkout@v3  # You can change this to your preferred checkout method
+
+      - name: Install Node.js # Name of the action
+        uses: actions/setup-node@v3 # You can change this to your preferred setup method
+        with: 
+          node-version: '18' # This is the version of Node.js you want to use (please use 18 and above)
+      
+      - name: Install dependencies # Name of the action (npm install)
+        env: CI=true
+        run: npm ci # this will install all dependencies in package.json (ci = continuous integration)
+
+ ### Now deploy your project to Lambda! ###
+      - name: Deploy to Lambda
+        run: zip -r application.zip lambda.js index.js public/*
+        
+### Now install AWS CLI ###
+- name: Install AWS CLI
+        uses: aws-actions/aws-cli@v2
+        with:
+          aws-version: '2.0.67'  # You can adjust the AWS CLI version if needed
+          region: 'us-east-1'      # You can change this to your desired AWS region
+
+      - name: Configure AWS Permissions
+        uses: aws/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Same access KEY_ID as before
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Same SECRET_ACCESS_KEY as before
+          region: 'us-east-1'                              # Same region as before
+
+      - name: Build (Optional)
+        # Add any build steps here if your project requires them
+
+### Now deploy your project to Lambda!
+      - name: Deploy to Lambda
+        run: aws lambda update-function-code --function-name my-lambda-function --zip-file fileb://application.zip
