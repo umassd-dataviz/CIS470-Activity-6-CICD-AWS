@@ -1,10 +1,10 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const serverless = require('serverless-http');
 
-app.use(express.static('public'))
+const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Hello World -- this is from actions!')
-})
+    res.json({ message: 'Hello from Express!' });
+});
 
-module.exports = app;
+module.exports.handler = serverless(app);
