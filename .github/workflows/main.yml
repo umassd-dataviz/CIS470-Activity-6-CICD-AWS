@@ -17,8 +17,7 @@ jobs:
           node-version: '18' # This is the version of Node.js you want to use (please use 18 and above)
       
       - name: Install dependencies # Name of the action (npm install)
-        env: CI=true
-        run: npm ci # this will install all dependencies in package.json (ci = continuous integration)
+        run: npm install # this will install all dependencies in package.json (ci = continuous integration)
 
       # Optional build step (if needed)
       # - name: Build application
