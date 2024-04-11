@@ -22,7 +22,7 @@ jobs:
       - name: Zip and deploy to Lambda
         run: |
           zip -r application.zip lambda.js index.js public/*
-          aws lambda update-function-code --function-name my-lambda-function --zip-file fileb://application.zip
+          aws lambda update-function-code --function-name CIS470-Activity-8 --zip-file fileb://application.zip
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
