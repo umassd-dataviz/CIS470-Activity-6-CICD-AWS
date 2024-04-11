@@ -20,10 +20,15 @@ jobs:
         env: CI=true
         run: npm ci # this will install all dependencies in package.json (ci = continuous integration)
 
+      # Optional build step (if needed)
+      # - name: Build application
+      #   run: npm run build  # Replace with your build command
+
  ### Now deploy your project to Lambda! ###
-      - name: Deploy to Lambda
-        run: zip -r application.zip lambda.js index.js public/*
-        
+      - name: Zip and deploy to Lambda
+        run: |
+          zip -r application.zip lambda.js index.js public/*
+          aws lambda update-function-code --function-name my-lambda-function --zip-file fileb://application.zip
 
       - name: Install AWS CLI
         uses: aws-actions/aws-cli@v2
@@ -37,7 +42,3 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Same access KEY_ID as before
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Same SECRET_ACCESS_KEY as before
           region: 'us-east-1'                              # Same region as before
-
-### Now deploy your project to Lambda!
-      - name: Deploy to Lambda
-        run: aws lambda update-function-code --function-name my-lambda-function --zip-file fileb://application.zip
