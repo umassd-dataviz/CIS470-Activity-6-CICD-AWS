@@ -8,8 +8,6 @@ Running version: https://2uwhs0bpgj.execute-api.us-east-1.amazonaws.com/default/
 Experiment with the use of AWS Lambda functions, and deploy them to AWS Lambda.
 Run a CI/CD pipeline to deploy your Lambda function to AWS Lambda.
 
-
-
 ### Activity Details
 
 ##### Create a GitHub repository
@@ -43,16 +41,11 @@ In order to deploy to Lambda, you need to  have the access key and the secret ke
 Check the video below to see how you can make the access key and secret key. Also, follow the video steps to add the keys to your GitHub repository secret keys.
 
 
-
-
-
 https://github.com/umassd-dataviz/CIS470-Activity-8/assets/119906645/8ca7d3a7-d2e6-4764-b124-2b2c1eb7a775
-
-
 
 
 #### Deliverables of the Assignment:
 
-Running lambda function in AWS Lambda
+Running lambda function in AWS Lambda: Include the link to the running lambda function.
 
 <i> In the next Activity, we will use this lambda function to add test, and run it. </i>
