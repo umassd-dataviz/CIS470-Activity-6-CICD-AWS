@@ -1,4 +1,4 @@
-### CIS470-Activity-8 (CI/CD pipeline)
+### CIS470-Activity-6 (CI/CD pipeline)
 
 ### Basics of CI/CD pipeline, Deploying Lambda function
 Running version: https://2uwhs0bpgj.execute-api.us-east-1.amazonaws.com/default/CIS470-Activity-8
