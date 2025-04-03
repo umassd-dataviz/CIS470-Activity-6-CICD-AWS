@@ -11,7 +11,7 @@ Run a CI/CD pipeline to deploy your Lambda function to AWS Lambda.
 ### Activity Details
 
 ##### Create a GitHub repository
-You can fork the repository [here](https://github.com/umassd-dataviz/CIS470-Activity-8) and create a new repository. or You can start your repository.
+You can fork the repository [here](https://github.com/umassd-dataviz/CIS470-Activity-6-CICD-AWS.git) and create a new repository. or You can start your repository.
 
 #### Open an AWS account
 You will need to go to the AWS console and create an account: https://aws.amazon.com/free
