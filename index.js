@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.get('/default/CIS470-Activity-6', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 })
-
+// test
 app.post('/default/CIS470-Activity-6/check-triangle', (req, res) => {
     const { side1, side2, side3 } = req.body;
     const result = classifyTriangle(side1,side2,side3);
