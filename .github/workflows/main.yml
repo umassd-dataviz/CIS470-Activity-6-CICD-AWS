@@ -46,4 +46,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: 'us-east-1'
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }} # <--- This line is only needed when using AWS Academy and AWS CLI there
+          AWS_DEFAULT_REGION: 'us-east-1' # Make sure to fix it based on your AWS Server, you can find it at the top bar
